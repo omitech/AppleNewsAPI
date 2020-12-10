@@ -7,7 +7,7 @@
 
 namespace ChapterThree\AppleNewsAPI;
 
-use ChapterThree\AppleNewsAPI\Document\AdvertisingSettings;
+use ChapterThree\AppleNewsAPI\Document\AutoPlacement;
 use ChapterThree\AppleNewsAPI\Document\Base;
 use ChapterThree\AppleNewsAPI\Document\Components\Component;
 use ChapterThree\AppleNewsAPI\Document\Components\ComponentNested;
@@ -32,7 +32,7 @@ class Document extends Base {
   protected $components;
   protected $componentTextStyles;
 
-  protected $advertisingSettings;
+  protected $autoplacement;
   protected $subtitle;
   protected $metadata;
   protected $documentStyle;
@@ -67,7 +67,7 @@ class Document extends Base {
    */
   protected function optional() {
     return array_merge(parent::optional(), array(
-      'advertisingSettings',
+      'autoplacement',
       'subtitle',
       'metadata',
       'documentStyle',
@@ -231,25 +231,25 @@ class Document extends Base {
   }
 
   /**
-   * Getter for advertisingSettings.
+   * Getter for autoPlacement.
    */
-  public function getAdvertisingSettings() {
-    return $this->advertisingSettings;
+  public function getAutoPlacement() {
+    return $this->autoplacement;
   }
 
   /**
-   * Setter for advertisingSettings.
+   * Setter for autoPlacement.
    *
-   * @param AdvertisingSettings $value
+   * @param AutoPlacement $value
    *
    * @return $this
    */
-  public function setAdvertisingSettings($value) {
-    if (is_object($value) && !$value instanceof AdvertisingSettings) {
-      $this->triggerError('Object not of type AdvertisingSettings');
+  public function setAutoPlacement($value) {
+    if (is_object($value) && !$value instanceof AutoPlacement) {
+        $this->triggerError('Invalid value for ' . __METHOD__ . ' ' . get_called_class());
     }
     else {
-      $this->advertisingSettings = $value;
+      $this->autoplacement = $value;
     }
     return $this;
   }

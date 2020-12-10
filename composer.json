@@ -1,5 +1,5 @@
 {
-    "name" : "chapter-three/apple-news-api",
+    "name" : "omitech/apple-news-api",
     "type": "library",
     "description": "Push content to Apple News.",
     "keywords": ["apple", "push", "news", "api"],
