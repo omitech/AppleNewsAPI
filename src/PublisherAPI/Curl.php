@@ -219,15 +219,24 @@ class Curl extends Base {
       );
     }
 
-    // Set content type and boundary token.
-    $content_type = sprintf('multipart/form-data; boundary=%s', $this->boundary);
-
-    // Put together all the multipart data.
-    $contents = $this->multipartFinalize($multiparts);
-
+if (!empty($multiparts)) {
+      // Set content type and boundary token.
+      $content_type = sprintf('multipart/form-data; boundary=%s', $this->boundary);
+  
+      // Put together all the multipart data.
+      $contents = $this->multipartFinalize($multiparts);
+  
+    } elseif (!empty($data['body'])) {
+      // Post request with json body
+      $contents = $data['body'];      
+      $content_type = 'application/json';
+    } else {
+        $this->triggerError('Empty post data');
+    }
+    
     // String to add to generate Authorization hash.
     $string = $content_type . $contents;
-
+    
     // Make sure no USERAGENET in headers.
     $this->client->setOpt(CURLOPT_USERAGENT, NULL);
     $this->SetHeaders(
@@ -238,6 +247,7 @@ class Curl extends Base {
         'Authorization'   => $this->auth($string)
       ]
     );
+    
     // Send POST request.
     return $this->request($contents);
   }
