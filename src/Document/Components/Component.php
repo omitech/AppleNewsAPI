@@ -16,7 +16,8 @@ use ChapterThree\AppleNewsAPI\Document\Behaviors\Behavior;
 /**
  * An Apple News Document Component.
  */
-abstract class Component extends Base {
+abstract class Component extends Base
+{
 
   protected $role;
 
@@ -35,7 +36,8 @@ abstract class Component extends Base {
    * @param mixed $identifier
    *   Identifier.
    */
-  public function __construct($role, $identifier = NULL) {
+  public function __construct($role, $identifier = NULL)
+  {
     $this->setRole($role);
     $this->setIdentifier($identifier);
   }
@@ -43,7 +45,8 @@ abstract class Component extends Base {
   /**
    * {@inheritdoc}
    */
-  protected function optional() {
+  protected function optional()
+  {
     return array_merge(parent::optional(), array(
       'identifier',
       'layout',
@@ -57,7 +60,8 @@ abstract class Component extends Base {
   /**
    * Getter for role.
    */
-  public function getRole() {
+  public function getRole()
+  {
     return $this->role;
   }
 
@@ -71,7 +75,8 @@ abstract class Component extends Base {
    *
    * @return $this
    */
-  protected function setRole($role) {
+  protected function setRole($role)
+  {
     $this->role = (string) $role;
     return $this;
   }
@@ -79,7 +84,8 @@ abstract class Component extends Base {
   /**
    * Getter for identifier.
    */
-  public function getIdentifier() {
+  public function getIdentifier()
+  {
     return $this->identifier;
   }
 
@@ -91,7 +97,8 @@ abstract class Component extends Base {
    *
    * @return $this
    */
-  public function setIdentifier($identifier) {
+  public function setIdentifier($identifier)
+  {
     $this->identifier = (string) $identifier;
     return $this;
   }
@@ -102,7 +109,8 @@ abstract class Component extends Base {
    * @return \ChapterThree\AppleNewsAPI\Document\Layouts\ComponentLayout|string
    *   Layout object or string reference
    */
-  public function getLayout() {
+  public function getLayout()
+  {
     return $this->layout;
   }
 
@@ -117,18 +125,19 @@ abstract class Component extends Base {
    *
    * @return $this
    */
-  public function setLayout($layout, Document $document = NULL) {
+  public function setLayout($layout, Document $document = NULL)
+  {
     $class = 'ChapterThree\AppleNewsAPI\Document\Layouts\ComponentLayout';
     if (is_string($layout)) {
       // Check that layout exists.
-      if ($document &&
-          empty($document->getComponentLayouts()[$layout])
+      if (
+        $document &&
+        empty($document->getComponentLayouts()[$layout])
       ) {
         $this->triggerError("No component layout \"${layout}\" found.");
         return $this;
       }
-    }
-    elseif (!$layout instanceof $class) {
+    } elseif (!$layout instanceof $class) {
       $this->triggerError("Layout not of class ${class}.");
       return $this;
     }
@@ -139,7 +148,8 @@ abstract class Component extends Base {
   /**
    * Getter for style.
    */
-  public function getStyle() {
+  public function getStyle()
+  {
     return $this->style;
   }
 
@@ -154,18 +164,19 @@ abstract class Component extends Base {
    *
    * @return $this
    */
-  public function setStyle($style, Document $document = NULL) {
+  public function setStyle($style, Document $document = NULL)
+  {
     $class = 'ChapterThree\AppleNewsAPI\Document\Styles\ComponentStyle';
     if (is_string($style)) {
       // Check that style exists.
-      if ($document &&
-          empty($document->getComponentStyles()[$style])
+      if (
+        $document &&
+        empty($document->getComponentStyles()[$style])
       ) {
         $this->triggerError("No component style \"${style}\" found.");
         return $this;
       }
-    }
-    elseif (!$style instanceof $class) {
+    } elseif (!$style instanceof $class) {
       $this->triggerError("Style not of class ${class}.");
       return $this;
     }
@@ -176,7 +187,8 @@ abstract class Component extends Base {
   /**
    * Getter for anchor.
    */
-  public function getAnchor() {
+  public function getAnchor()
+  {
     return $this->anchor;
   }
 
@@ -188,7 +200,8 @@ abstract class Component extends Base {
    *
    * @return $this
    */
-  public function setAnchor(Anchor $anchor) {
+  public function setAnchor(Anchor $anchor)
+  {
     $this->anchor = $anchor;
     return $this;
   }
@@ -196,7 +209,8 @@ abstract class Component extends Base {
   /**
    * Getter for animation.
    */
-  public function getAnimation() {
+  public function getAnimation()
+  {
     return $this->animation;
   }
 
@@ -208,7 +222,8 @@ abstract class Component extends Base {
    *
    * @return $this
    */
-  public function setAnimation(ComponentAnimation $animation) {
+  public function setAnimation(ComponentAnimation $animation)
+  {
     $this->animation = $animation;
     return $this;
   }
@@ -216,7 +231,8 @@ abstract class Component extends Base {
   /**
    * Getter for behavior.
    */
-  public function getBehavior() {
+  public function getBehavior()
+  {
     return $this->behavior;
   }
 
@@ -228,9 +244,9 @@ abstract class Component extends Base {
    *
    * @return $this
    */
-  public function setBehavior(Behavior $behavior) {
+  public function setBehavior(Behavior $behavior)
+  {
     $this->behavior = $behavior;
     return $this;
   }
-
 }

@@ -1,6 +1,7 @@
 <?php
 namespace ChapterThree\AppleNewsAPI\Document\Components;
 
+use ChapterThree\AppleNewsAPI\Document;
 use ChapterThree\AppleNewsAPI\Document\Anchor;
 use ChapterThree\AppleNewsAPI\Document\Animations\ComponentAnimations\ComponentAnimation;
 use ChapterThree\AppleNewsAPI\Document\Behaviors\Behavior;
@@ -168,7 +169,7 @@ class LinkButton extends Component
         return $this->layout;
     }
 
-    public function setLayout(ComponentLayout $layout)
+    public function setLayout($layout, Document $document = NULL)
     {
         $this->layout = $layout;
         return $this;
@@ -179,7 +180,7 @@ class LinkButton extends Component
         return $this->style;
     }
 
-    public function setStyle(ComponentStyle $style)
+    public function setStyle($style, Document $document = NULL) 
     {
         $this->style = $style;
         return $this;
