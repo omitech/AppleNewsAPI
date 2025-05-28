@@ -284,7 +284,7 @@ class TextStyle extends Base {
   /**
    * Implements JsonSerializable::jsonSerialize().
    */
-  public function jsonSerialize() {
+  public function jsonSerialize(): mixed {
     $valid = (!isset($this->textColor) ||
         $this->validateTextColor($this->textColor)) &&
       (!isset($this->textTransform) ||

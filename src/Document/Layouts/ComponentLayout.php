@@ -246,7 +246,7 @@ class ComponentLayout extends Base {
   /**
    * Implements JsonSerializable::jsonSerialize().
    */
-  public function jsonSerialize() {
+  public function jsonSerialize(): mixed {
     $valid = (!isset($this->ignoreDocumentMargin) ||
         $this->validateIgnoreDocumentMargin($this->ignoreDocumentMargin)) &&
       (!isset($this->ignoreDocumentGutter) ||

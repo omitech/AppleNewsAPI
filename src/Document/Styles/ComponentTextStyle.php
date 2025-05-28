@@ -136,7 +136,7 @@ class ComponentTextStyle extends TextStyle {
   /**
    * Implements JsonSerializable::jsonSerialize().
    */
-  public function jsonSerialize() {
+  public function jsonSerialize(): mixed {
     $valid = (!isset($this->textAlignment) ||
         $this->validateTextAlignment($this->textAlignment));
     if (!$valid) {

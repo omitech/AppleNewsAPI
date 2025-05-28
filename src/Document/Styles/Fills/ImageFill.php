@@ -128,7 +128,7 @@ class ImageFill extends Fill {
   /**
    * Implements JsonSerializable::jsonSerialize().
    */
-  public function jsonSerialize() {
+  public function jsonSerialize(): mixed {
     $valid = (!isset($this->fillMode) ||
         $this->validateFillMode($this->fillMode)) &&
       (!isset($this->verticalAlignment) ||

@@ -55,7 +55,7 @@ class MoveInAnimation extends ComponentAnimation {
   /**
    * Implements JsonSerializable::jsonSerialize().
    */
-  public function jsonSerialize() {
+  public function jsonSerialize(): mixed {
     $valid = !isset($this->preferredStartingPosition) ||
       $this->validatePreferredStartingPosition($this->preferredStartingPosition);
     if (!$valid) {

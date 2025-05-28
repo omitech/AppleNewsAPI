@@ -383,7 +383,7 @@ class Document extends Base {
   /**
    * Implements JsonSerializable::jsonSerialize().
    */
-  public function jsonSerialize() {
+  public function jsonSerialize(): mixed {
 
     if (!isset($this->componentTextStyles['default'])) {
       $msg = "Document must have at least a \"default\" ComponentTextStyle.";

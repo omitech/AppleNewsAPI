@@ -119,7 +119,7 @@ class ComponentStyle extends Base {
   /**
    * Implements JsonSerializable::jsonSerialize().
    */
-  public function jsonSerialize() {
+  public function jsonSerialize(): mixed {
     $valid = (!isset($this->backgroundColor) ||
         $this->validateBackgroundColor($this->backgroundColor)) &&
       (!isset($this->opacity) ||

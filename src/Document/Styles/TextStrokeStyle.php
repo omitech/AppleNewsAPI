@@ -50,7 +50,7 @@ class TextStrokeStyle extends Base {
   /**
    * Implements JsonSerializable::jsonSerialize().
    */
-  public function jsonSerialize() {
+  public function jsonSerialize(): mixed {
     $valid = (!isset($this->color) ||
         $this->validateColor($this->color));
     if (!$valid) {

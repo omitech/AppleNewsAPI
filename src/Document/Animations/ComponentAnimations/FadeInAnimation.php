@@ -78,7 +78,7 @@ class FadeInAnimation extends ComponentAnimation {
   /**
    * Implements JsonSerializable::jsonSerialize().
    */
-  public function jsonSerialize() {
+  public function jsonSerialize(): mixed {
     $valid = !isset($this->initialAlpha) ||
       $this->validateInitialAlpha($this->initialAlpha);
     if (!$valid) {

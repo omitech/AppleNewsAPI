@@ -145,7 +145,7 @@ class Anchor extends Base {
   /**
    * Implements JsonSerializable::jsonSerialize().
    */
-  public function jsonSerialize() {
+  public function jsonSerialize(): mixed {
     if (isset($this->rangeStart) && !isset($this->rangeLength)) {
       $msg = "If rangeStart is specified, rangeLength is required.";
       $this->triggerError($msg);

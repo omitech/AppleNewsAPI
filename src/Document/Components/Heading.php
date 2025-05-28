@@ -40,7 +40,7 @@ class Heading extends Text {
   /**
    * Implements JsonSerializable::jsonSerialize().
    */
-  public function jsonSerialize() {
+  public function jsonSerialize(): mixed {
     if (!$this->validateRole($this->role)) {
       return NULL;
     }
