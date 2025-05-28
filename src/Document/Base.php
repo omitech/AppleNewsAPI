@@ -15,7 +15,7 @@ abstract class Base implements \JsonSerializable {
   /**
    * Implements JsonSerializable::jsonSerialize().
    */
-  public function jsonSerialize(): mixed: mixed 
+  public function jsonSerialize(): mixed 
   {
     // Define empty attribute values.
     // @see http://php.net/manual/en/language.types.boolean.php#language.types.boolean.casting
